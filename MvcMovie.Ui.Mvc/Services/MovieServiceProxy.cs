@@ -45,7 +45,6 @@ namespace MvcMovie.Ui.Mvc.Services
         async Task<IEnumerable<MovieDto>> IMovieService.GetMoviesAsync()
         {
             var response = await Client.GetAsync(_moviesRequestUri).ConfigureAwait(false);
-
             response.EnsureSuccessStatusCode();
 
             var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
@@ -57,9 +56,10 @@ namespace MvcMovie.Ui.Mvc.Services
             return await JsonSerializer.DeserializeAsync<IEnumerable<MovieDto>>(stream, options).ConfigureAwait(false);
         }
 
-        Task IMovieService.RemoveAsync(int id)
+        async Task IMovieService.RemoveAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var response = await Client.DeleteAsync($"{_moviesRequestUri}/{id}").ConfigureAwait(false);
+            response.EnsureSuccessStatusCode();
         }
 
         async Task IMovieService.UpdateAsync(int id, MovieDto movie)

@@ -51,7 +51,7 @@ namespace MvcMovie.Ui.Mvc
             {
                 endpoints.MapControllerRoute(
                     "default",
-                    "{controller=Home}/{action=Index}/{id?}");
+                    "{controller=Movies}/{action=Index}/{id?}");
             });
         }
     }
