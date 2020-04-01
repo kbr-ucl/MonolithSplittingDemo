@@ -15,8 +15,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MvcMovie.Service.Contract\MvcMovie.Service.Contract.csproj" />
-  </ItemGroup>
-
 </Project>
