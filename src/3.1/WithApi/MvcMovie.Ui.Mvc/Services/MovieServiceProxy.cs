@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace MvcMovie.Ui.Mvc.Services
         public MovieServiceProxy(HttpClient client)
         {
             Client = client;
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+                {
+                    Parameters = { new NameValueHeaderValue( "v", "1.1" )}
+                });
         }
 
         public HttpClient Client { get; }
@@ -22,7 +28,7 @@ namespace MvcMovie.Ui.Mvc.Services
         async Task IMovieService.AddAsync(MovieDto movie)
         {
             var json = JsonSerializer.Serialize(movie);
-            var data = new StringContent(json, Encoding.UTF8, "application/json; v=2.0");
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(_moviesRequestUri, data).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
         }

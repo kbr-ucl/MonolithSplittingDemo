@@ -8,7 +8,10 @@ using MvcMovie.Service.Infrastructure.Database;
 
 namespace MvcMovie.Service.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [Route("api/Movies")]
+    [ApiVersion("1.0")]
+    [ApiVersion("1.1")]
     [ApiController]
     public class MoviesController : ControllerBase
     {
@@ -28,6 +31,7 @@ namespace MvcMovie.Service.Api.Controllers
 
         // GET: api/Movies/5
         [HttpGet("{id}", Name = "Get")]
+        [ApiVersion("1.1")]
         public MovieDto Get(int id)
         {
             return Mapper.Map(_movieService.Get(id));

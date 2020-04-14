@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MvcMovie.Service.Api.Extensions;
 using MvcMovie.Service.Domain;
 using MvcMovie.Service.Infrastructure.Database;
 
@@ -26,16 +28,19 @@ namespace MvcMovie.Service.Api
                 options.UseSqlite(Configuration.GetConnectionString("MvcMovieContext")));
 
             services.AddScoped<IMovieService, MovieService>();
-
+            services.AddApiVersioningAndExplorer();
+            services.AddSwaggerGeneration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
-
+            
+            app.UseSwagger();
+            app.UseSwaggerUIAndAddApiVersionEndPointBuilder(provider);
             app.UseRouting();
 
             app.UseAuthorization();
