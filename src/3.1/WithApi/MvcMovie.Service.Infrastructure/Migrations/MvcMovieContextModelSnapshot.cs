@@ -4,9 +4,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MvcMovie.Service.Api.Data;
+using MvcMovie.Service.Infrastructure.Database;
 
-namespace MvcMovie.Service.Api.Migrations
+namespace MvcMovie.Service.Infrastructure.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
     partial class MvcMovieContextModelSnapshot : ModelSnapshot

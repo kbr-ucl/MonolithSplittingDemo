@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MvcMovie.Service.Api.Data
+namespace MvcMovie.Service.Infrastructure.Database
 {
     public static class SeedData
     {

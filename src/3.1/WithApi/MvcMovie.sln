@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcMovie.Service.Api", "Mvc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcMovie.Ui.Mvc", "MvcMovie.Ui.Mvc\MvcMovie.Ui.Mvc.csproj", "{D5B918D9-2B9A-49D4-B3FA-4B5AA5435134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie.Service.Contract", "MvcMovie.Service.Contract\MvcMovie.Service.Contract.csproj", "{48D60BA0-DE1C-4499-8FF0-FA03F8E6B97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcMovie.Service.Contract", "MvcMovie.Service.Contract\MvcMovie.Service.Contract.csproj", "{48D60BA0-DE1C-4499-8FF0-FA03F8E6B97F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie.Service.Domain", "MvcMovie.Service.Domain\MvcMovie.Service.Domain.csproj", "{13782899-A6DF-4472-B466-12D9DF741B79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie.Service.Infrastructure", "MvcMovie.Service.Infrastructure\MvcMovie.Service.Infrastructure.csproj", "{DA13A2D2-022B-4C12-8FED-F282463B58CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{48D60BA0-DE1C-4499-8FF0-FA03F8E6B97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D60BA0-DE1C-4499-8FF0-FA03F8E6B97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D60BA0-DE1C-4499-8FF0-FA03F8E6B97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13782899-A6DF-4472-B466-12D9DF741B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13782899-A6DF-4472-B466-12D9DF741B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13782899-A6DF-4472-B466-12D9DF741B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13782899-A6DF-4472-B466-12D9DF741B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA13A2D2-022B-4C12-8FED-F282463B58CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA13A2D2-022B-4C12-8FED-F282463B58CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA13A2D2-022B-4C12-8FED-F282463B58CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA13A2D2-022B-4C12-8FED-F282463B58CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

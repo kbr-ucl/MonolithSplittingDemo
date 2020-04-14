@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MvcMovie.Service.Api.Data;
+using MvcMovie.Service.Domain;
+using MvcMovie.Service.Infrastructure.Database;
 
 namespace MvcMovie.Service.Api
 {
@@ -23,6 +24,8 @@ namespace MvcMovie.Service.Api
             services.AddControllers();
             services.AddDbContext<MvcMovieContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("MvcMovieContext")));
+
+            services.AddScoped<IMovieService, MovieService>();
 
         }
 

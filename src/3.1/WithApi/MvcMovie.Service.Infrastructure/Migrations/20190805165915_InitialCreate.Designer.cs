@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MvcMovie.Service.Api.Data;
+using MvcMovie.Service.Infrastructure.Database;
 
-namespace MvcMovie.Service.Api.Migrations
+namespace MvcMovie.Service.Infrastructure.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
     [Migration("20190805165915_Initial")]

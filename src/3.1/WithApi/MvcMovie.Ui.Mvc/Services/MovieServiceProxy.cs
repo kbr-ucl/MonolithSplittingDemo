@@ -22,7 +22,7 @@ namespace MvcMovie.Ui.Mvc.Services
         async Task IMovieService.AddAsync(MovieDto movie)
         {
             var json = JsonSerializer.Serialize(movie);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var data = new StringContent(json, Encoding.UTF8, "application/json; v=2.0");
             var response = await Client.PostAsync(_moviesRequestUri, data).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
         }

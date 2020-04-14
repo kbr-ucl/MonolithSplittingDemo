@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MvcMovie.Service.Contract.Dtos;
+using MvcMovie.Service.Infrastructure.Database;
 
-namespace MvcMovie.Service.Api.Data
+namespace MvcMovie.Service.Api.Model
 {
     public static class Mapper
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MvcMovie.Service.Api.Migrations
+namespace MvcMovie.Service.Infrastructure.Migrations
 {
     #region snippet
     public partial class Initial : Migration

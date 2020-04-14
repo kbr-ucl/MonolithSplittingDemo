@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 
 // Enables public DbSet<Movie> Movie
 
-namespace MvcMovie.Service.Api.Data
+using Microsoft.EntityFrameworkCore;
+
+namespace MvcMovie.Service.Infrastructure.Database
 {
     public class MvcMovieContext : DbContext
     {
