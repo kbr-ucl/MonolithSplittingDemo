@@ -25,7 +25,8 @@ namespace MvcMovie.Service.Api
         {
             services.AddControllers();
             services.AddDbContext<MvcMovieContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("MvcMovieContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+                //options.UseSqlite(Configuration.GetConnectionString("MvcMovieContext")));
 
             services.AddScoped<IMovieService, MovieService>();
             services.AddApiVersioningAndExplorer();
