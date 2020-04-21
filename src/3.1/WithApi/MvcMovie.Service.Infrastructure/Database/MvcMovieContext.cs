@@ -18,5 +18,10 @@ namespace MvcMovie.Service.Infrastructure.Database
         }
 
         public DbSet<Movie> Movie { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

@@ -14,5 +14,8 @@ namespace MvcMovie.Service.Infrastructure.Database
         public decimal Price { get; set; }
 
         public string Rating { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }
