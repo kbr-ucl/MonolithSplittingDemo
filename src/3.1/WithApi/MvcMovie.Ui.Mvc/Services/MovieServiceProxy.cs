@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -73,7 +75,11 @@ namespace MvcMovie.Ui.Mvc.Services
             var json = JsonSerializer.Serialize(movie);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await Client.PutAsync($"{_moviesRequestUri}/{id}", data).ConfigureAwait(false);
-            response.EnsureSuccessStatusCode();
+            if( ! response.IsSuccessStatusCode)
+            {
+                string msg = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                throw new DBConcurrencyException(msg);
+            }
         }
     }
 }
