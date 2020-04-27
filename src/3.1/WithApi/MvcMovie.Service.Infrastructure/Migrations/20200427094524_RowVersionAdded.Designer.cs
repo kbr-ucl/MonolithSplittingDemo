@@ -10,7 +10,7 @@ using MvcMovie.Service.Infrastructure.Database;
 namespace MvcMovie.Service.Infrastructure.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    [Migration("20200421105130_RowVersionAdded")]
+    [Migration("20200427094524_RowVersionAdded")]
     partial class RowVersionAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

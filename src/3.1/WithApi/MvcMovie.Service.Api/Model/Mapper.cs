@@ -10,7 +10,7 @@ namespace MvcMovie.Service.Api.Model
         public static Movie Map(MovieDto dto)
         {
             return new Movie
-                {Genre = dto.Genre, Id = dto.Id, Price = dto.Price, ReleaseDate = dto.ReleaseDate, Title = dto.Title};
+                {Genre = dto.Genre, Id = dto.Id, Price = dto.Price, ReleaseDate = dto.ReleaseDate, Title = dto.Title, RowVersion = dto.RowVersion};
         }
 
         public static IEnumerable<MovieDto> Map(IEnumerable<Movie> model)
@@ -21,7 +21,7 @@ namespace MvcMovie.Service.Api.Model
         public static MovieDto Map(Movie model)
         {
             return new MovieDto
-                {Genre = model.Genre, Id = model.Id, Price = model.Price, ReleaseDate = model.ReleaseDate, Title = model.Title};
+                {Genre = model.Genre, Id = model.Id, Price = model.Price, ReleaseDate = model.ReleaseDate, Title = model.Title, RowVersion = model.RowVersion};
         }
     }
 }

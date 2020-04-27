@@ -8,10 +8,6 @@ namespace MvcMovie.Service.Infrastructure.Database
 {
     public class MvcMovieContext : DbContext
     {
-        public MvcMovieContext()
-        {
-            
-        }
         public MvcMovieContext(DbContextOptions<MvcMovieContext> options)
             : base(options)
         {
