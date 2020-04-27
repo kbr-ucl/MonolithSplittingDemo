@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Service.Contract.Services;
@@ -80,14 +81,23 @@ namespace MvcMovie.Ui.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,RowVersion")]
             MovieViewModel movie)
         {
             if (id != movie.Id) return NotFound();
 
             if (ModelState.IsValid)
             {
-                await _movieService.UpdateAsync(id, Mapper.Map(movie)).ConfigureAwait(false);
+                try
+                {
+                    await _movieService.UpdateAsync(id, Mapper.Map(movie)).ConfigureAwait(false);
+                }
+                catch (DBConcurrencyException e)
+                {
+                    ModelState.AddModelError("", "Data er blevet opdateret af andre i mellemtiden");
+                    return View(movie);
+                }
+
                 return RedirectToAction(nameof(Index));
             }
 
