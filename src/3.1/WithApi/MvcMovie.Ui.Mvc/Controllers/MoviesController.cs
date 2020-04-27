@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Service.Contract.Services;
 using MvcMovie.Ui.Mvc.Models;
@@ -37,6 +38,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View(new MovieViewModel
@@ -53,6 +55,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")]
             MovieViewModel movie)
         {
@@ -67,6 +70,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -81,6 +85,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,RowVersion")]
             MovieViewModel movie)
         {
@@ -105,6 +110,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -119,6 +125,7 @@ namespace MvcMovie.Ui.Mvc.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _movieService.RemoveAsync(id).ConfigureAwait(false);
