@@ -42,6 +42,7 @@ namespace MvcMovie.Ui.Mvc
             services.AddDbContext<UserManagementDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UserDatabaseConnection")));
+            
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<UserManagementDbContext>();
